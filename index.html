@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizify - Interactive Quiz App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="./images/logo.png" alt="Quizify-logo">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#homepage">Home</a></li>
+                <li><a href="#quiz-section">Quiz</a></li>
+                <li><a href="#results-section">Results</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <div class="container">
+        
+        <div id="homepage" class="section">
+            <div class="quiz-card">
+                <div class="quiz-header-card">
+                    <div class="quiz-icon">🎯</div>
+                    <h1 class="quiz-title">General Knowledge Quiz</h1>
+                    <p class="quiz-description">Challenge yourself with our comprehensive quiz covering various topics including science, history, tech, and more!</p>
+                </div>
+
+                <div class="quiz-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">📝</div>
+                        <div class="feature-content">
+                            <h3>20 Questions</h3>
+                            <p>Carefully selected questions</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⏰</div>
+                        <div class="feature-content">
+                            <h3>20 Minutes</h3>
+                            <p>Time limit for completion</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-content">
+                            <h3>Multiple Choice</h3>
+                            <p>4 options per question</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏆</div>
+                        <div class="feature-content">
+                            <h3>Instant Results</h3>
+                            <p>Get your score immediately</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz-stats-bar">
+                    <div class="stat-badge">
+                        <span class="stat-icon">👥</span>
+                        <span class="stat-text">1,234+ Participants</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-icon">⭐</span>
+                        <span class="stat-text">4.8/5 Rating</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-icon">🚀</span>
+                        <span class="stat-text">Easy to Hard</span>
+                    </div>
+                </div>
+
+                <div class="quiz-actions">
+                    <button id="start-btn" class="btn btn-primary btn-large">
+                        <span class="btn-icon">🚀</span>
+                        <span>Start Quiz Now</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                    <p class="quiz-note">💡 Tip: Take your time and read each question carefully</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="quiz-section" class="section hidden">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                    <div class="quiz-info">
+                        <span id="question-counter">Question 1 of 20</span>
+                        <div class="timer">
+                            <span id="timer">⏱️ 20:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="question-container" class="question-container">
+                <h2 id="question-text">Question will appear here</h2>
+                <div id="options-container" class="options-grid"></div>
+            </div>
+
+            <div class="quiz-controls">
+                <button id="next-btn" class="btn btn-secondary hidden">Next Question</button>
+            </div>
+        </div>
+
+        <div id="results-section" class="section hidden">
+            <div class="result-animation">
+                <div id="result-emoji" class="result-emoji">🎉</div>
+                <h2>Quiz Complete!</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="final-score">0/20</span>
+                    </div>
+                    <p id="score-message">Great job!</p>
+                </div>
+
+                <div class="result-stats">
+                    <div class="result-stat">
+                        <span class="stat-value" id="correct-answers">0</span>
+                        <span class="stat-text">Correct</span>
+                    </div>
+                    <div class="result-stat">
+                        <span class="stat-value" id="wrong-answers">0</span>
+                        <span class="stat-text">Wrong</span>
+                    </div>
+                    <div class="result-stat">
+                        <span class="stat-value" id="percentage">0%</span>
+                        <span class="stat-text">Score</span>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button id="restart-btn" class="btn btn-primary">
+                        <span>🔄 Try Again</span>
+                    </button>
+                    <button id="home-btn" class="btn btn-secondary">
+                        <span>🏠 Home</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
