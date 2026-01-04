@@ -3,62 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizify - Interactive Quiz App</title>
+    <title>Quizify - Advanced Interactive Quiz</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="enhanced-styles.css">
 </head>
 <body>
-
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+    </button>
     <header class="main-header">
         <div class="logo">
-            <img src="./images/logo.png" alt="Quizify-logo">
+            <img src="/images/logo.png" alt="Quizify-logo">
         </div>
         <nav class="navbar">
             <ul class="nav-links">
                 <li><a href="#homepage">Home</a></li>
                 <li><a href="#quiz-section">Quiz</a></li>
                 <li><a href="#results-section">Results</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#" id="signin-btn" class="signin-btn"> Sign In</a></li>
             </ul>
         </nav>
     </header>
 
-    
     <div class="container">
+        <!-- Sign In Modal -->
+<div id="signin-modal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>🔐 Sign In</h2>
         
+        <div id="signin-form" class="auth-form">
+            <input type="text" id="username" placeholder="Username" class="auth-input">
+            <input type="password" id="password" placeholder="Password" class="auth-input">
+            <button id="login-btn" class="btn btn-primary">Login</button>
+            <p class="auth-switch">Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+        </div>
+
+        <div id="signup-form" class="auth-form hidden">
+            <input type="text" id="signup-username" placeholder="Username" class="auth-input">
+            <input type="email" id="signup-email" placeholder="Email" class="auth-input">
+            <input type="password" id="signup-password" placeholder="Password" class="auth-input">
+            <input type="password" id="signup-confirm" placeholder="Confirm Password" class="auth-input">
+            <button id="signup-btn" class="btn btn-primary">Sign Up</button>
+            <p class="auth-switch">Already have an account? <a href="#" id="show-signin">Sign In</a></p>
+        </div>
+
+        <div id="user-profile" class="user-profile hidden">
+            <div class="profile-avatar">👤</div>
+            <h3 id="profile-username">Username</h3>
+            <p id="profile-email">email@example.com</p>
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <strong id="total-quizzes">0</strong>
+                    <span>Quizzes Taken</span>
+                </div>
+                <div class="stat-item">
+                    <strong id="avg-score">0%</strong>
+                    <span>Average Score</span>
+                </div>
+            </div>
+            <button id="logout-btn" class="btn btn-secondary">Logout</button>
+        </div>
+    </div>
+</div>
+        <!-- Homepage -->
         <div id="homepage" class="section">
             <div class="quiz-card">
                 <div class="quiz-header-card">
                     <div class="quiz-icon">🎯</div>
-                    <h1 class="quiz-title">General Knowledge Quiz</h1>
-                    <p class="quiz-description">Challenge yourself with our comprehensive quiz covering various topics including science, history, tech, and more!</p>
+                    <h1 class="quiz-title">Advanced Tech Quiz</h1>
+                    <p class="quiz-description">Challenge yourself with 50 questions covering JavaScript, Web Development, and Technology!</p>
+                </div>
+
+                <!-- Quiz Settings -->
+                <div class="quiz-settings">
+                    <h3>⚙️ Quiz Settings</h3>
+                    
+                    <div class="setting-group">
+                        <label for="category-select">📁 Category:</label>
+                        <select id="category-select" class="setting-select">
+                            <option value="all">All Categories (50 questions)</option>
+                            <option value="JavaScript">JavaScript (20 questions)</option>
+                            <option value="Web Dev">Web Development (15 questions)</option>
+                            <option value="Technology">Technology (15 questions)</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="difficulty-select">🎲 Difficulty:</label>
+                        <select id="difficulty-select" class="setting-select">
+                            <option value="all">All Levels</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="question-count">🔢 Number of Questions:</label>
+                        <select id="question-count" class="setting-select">
+                            <option value="10">10 Questions (10 min)</option>
+                            <option value="20" selected>20 Questions (20 min)</option>
+                            <option value="30">30 Questions (30 min)</option>
+                            <option value="50">All 50 Questions (50 min)</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label>
+                            <input type="checkbox" id="hints-enabled" checked>
+                            💡 Enable Hints
+                        </label>
+                    </div>
+
+                    <div class="setting-group">
+                        <label>
+                            <input type="checkbox" id="sound-enabled" checked>
+                            🔊 Enable Sound Effects
+                        </label>
+                    </div>
                 </div>
 
                 <div class="quiz-features">
                     <div class="feature-item">
                         <div class="feature-icon">📝</div>
                         <div class="feature-content">
-                            <h3>20 Questions</h3>
-                            <p>Carefully selected questions</p>
+                            <h3>50 Questions</h3>
+                            <p>Tech-focused questions</p>
                         </div>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">⏰</div>
                         <div class="feature-content">
-                            <h3>20 Minutes</h3>
-                            <p>Time limit for completion</p>
+                            <h3>Flexible Time</h3>
+                            <p>10-50 minutes based on selection</p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon">🎯</div>
+                        <div class="feature-icon">💡</div>
                         <div class="feature-content">
-                            <h3>Multiple Choice</h3>
-                            <p>4 options per question</p>
+                            <h3>Hint System</h3>
+                            <p>Get help when stuck</p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon">🏆</div>
+                        <div class="feature-icon">📊</div>
                         <div class="feature-content">
-                            <h3>Instant Results</h3>
-                            <p>Get your score immediately</p>
+                            <h3>Detailed Analytics</h3>
+                            <p>Track your performance</p>
                         </div>
                     </div>
                 </div>
@@ -66,11 +161,11 @@
                 <div class="quiz-stats-bar">
                     <div class="stat-badge">
                         <span class="stat-icon">👥</span>
-                        <span class="stat-text">1,234+ Participants</span>
+                        <span class="stat-text">5,678+ Participants</span>
                     </div>
                     <div class="stat-badge">
                         <span class="stat-icon">⭐</span>
-                        <span class="stat-text">4.8/5 Rating</span>
+                        <span class="stat-text">4.9/5 Rating</span>
                     </div>
                     <div class="stat-badge">
                         <span class="stat-icon">🚀</span>
@@ -84,18 +179,22 @@
                         <span>Start Quiz Now</span>
                         <span class="btn-arrow">→</span>
                     </button>
-                    <p class="quiz-note">💡 Tip: Take your time and read each question carefully</p>
+                    <p class="quiz-note">💡 Tip: Use hints wisely - you get one hint per question!</p>
                 </div>
             </div>
         </div>
 
-        
+        <!-- Quiz Section -->
         <div id="quiz-section" class="section hidden">
             <div class="quiz-header">
                 <div class="progress-container">
                     <div id="progress-bar" class="progress-bar"></div>
                     <div class="quiz-info">
-                        <span id="question-counter">Question 1 of 20</span>
+                        <div class="info-left">
+                            <span id="question-counter">Question 1 of 20</span>
+                            <span id="category-badge" class="category-badge">JavaScript</span>
+                            <span id="difficulty-badge" class="difficulty-badge">Easy</span>
+                        </div>
                         <div class="timer">
                             <span id="timer">⏱️ 20:00</span>
                         </div>
@@ -104,15 +203,40 @@
             </div>
 
             <div id="question-container" class="question-container">
-                <h2 id="question-text">Question will appear here</h2>
+                <div class="question-header">
+                    <h2 id="question-text">Question will appear here</h2>
+                    <button id="bookmark-btn" class="icon-btn" title="Bookmark Question">
+                        <span class="bookmark-icon">🔖</span>
+                    </button>
+                </div>
+                
+                <!-- Hint Section -->
+                <div id="hint-section" class="hint-section hidden">
+                    <button id="show-hint-btn" class="hint-btn">
+                        💡 Show Hint
+                    </button>
+                    <div id="hint-text" class="hint-text hidden"></div>
+                </div>
+
                 <div id="options-container" class="options-grid"></div>
+                
+                <!-- Answer Explanation -->
+                <div id="explanation-section" class="explanation-section hidden">
+                    <div class="explanation-box">
+                        <h4>📚 Explanation:</h4>
+                        <p id="explanation-text"></p>
+                    </div>
+                </div>
             </div>
 
             <div class="quiz-controls">
-                <button id="next-btn" class="btn btn-secondary hidden">Next Question</button>
+                <button id="prev-btn" class="btn btn-secondary hidden">← Previous</button>
+                <button id="next-btn" class="btn btn-secondary hidden">Next Question →</button>
+                <button id="submit-quiz-btn" class="btn btn-primary hidden">🏁 Submit Quiz</button>
             </div>
         </div>
 
+        <!-- Results Section -->
         <div id="results-section" class="section hidden">
             <div class="result-animation">
                 <div id="result-emoji" class="result-emoji">🎉</div>
@@ -137,11 +261,30 @@
                         <span class="stat-value" id="percentage">0%</span>
                         <span class="stat-text">Score</span>
                     </div>
+                    <div class="result-stat">
+                        <span class="stat-value" id="time-taken">0:00</span>
+                        <span class="stat-text">Time Taken</span>
+                    </div>
+                </div>
+
+                <!-- Category Breakdown -->
+                <div id="category-breakdown" class="category-breakdown">
+                    <h3>📊 Performance by Category</h3>
+                    <div id="category-stats"></div>
+                </div>
+
+                <!-- Bookmarked Questions -->
+                <div id="bookmarked-questions" class="bookmarked-section hidden">
+                    <h3>🔖 Bookmarked Questions</h3>
+                    <div id="bookmarked-list"></div>
                 </div>
 
                 <div class="result-actions">
                     <button id="restart-btn" class="btn btn-primary">
                         <span>🔄 Try Again</span>
+                    </button>
+                    <button id="review-btn" class="btn btn-secondary">
+                        <span>📝 Review Answers</span>
                     </button>
                     <button id="home-btn" class="btn btn-secondary">
                         <span>🏠 Home</span>
@@ -149,9 +292,20 @@
                 </div>
             </div>
         </div>
+
+        <!-- History Section -->
+        <div id="history" class="section hidden">
+            <h2>📈 Quiz History</h2>
+            <div id="history-container" class="history-container">
+                <p class="no-history">No quiz history yet. Start a quiz to see your progress!</p>
+            </div>
+        </div>
     </div>
 
+    <!-- Scripts -->
     <script src="questions.js"></script>
     <script src="script.js"></script>
+    <script src="enhanced-script.js"></script>
+    <script src="auth.js"></script>
 </body>
 </html>

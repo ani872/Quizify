@@ -93,7 +93,7 @@ function startTimer() {
 function updateTimerDisplay() {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
-    timerDisplay.innerHTML = `⏱️ ${minutes}:${seconds.toString().padStart(2, '0')}`;
+    timerDisplay.innerHTML = `â±ï¸ ${minutes}:${seconds.toString().padStart(2, '0')}`;
 }
 
 
@@ -228,20 +228,20 @@ function showResults() {
     let emoji = '';
     
     if (percentage >= 90) {
-        message = 'Excellent! You\'re a quiz master! 🌟';
-        emoji = '🏆';
+        message = 'Excellent! You\'re a quiz master! ðŸŒŸ';
+        emoji = 'ðŸ†';
     } else if (percentage >= 80) {
-        message = 'Great job! You did really well! 👏';
-        emoji = '🎉';
+        message = 'Great job! You did really well! ðŸ‘';
+        emoji = 'ðŸŽ‰';
     } else if (percentage >= 70) {
-        message = 'Good work! Keep it up! 👍';
-        emoji = '😊';
+        message = 'Good work! Keep it up! ðŸ‘';
+        emoji = 'ðŸ˜Š';
     } else if (percentage >= 60) {
-        message = 'Not bad! There\'s room for improvement! 💪';
-        emoji = '🤔';
+        message = 'Not bad! There\'s room for improvement! ðŸ’ª';
+        emoji = 'ðŸ¤”';
     } else {
-        message = 'Keep practicing! You\'ll do better next time! 📚';
-        emoji = '😅';
+        message = 'Keep practicing! You\'ll do better next time! ðŸ“š';
+        emoji = 'ðŸ˜…';
     }
     
     document.getElementById('score-message').textContent = message;
@@ -278,7 +278,7 @@ function resetQuizData() {
     
     
     timerDisplay.classList.remove('warning');
-    timerDisplay.innerHTML = '⏱️ 20:00';
+    timerDisplay.innerHTML = 'â±ï¸ 20:00';
     
    
     progressBar.style.setProperty('--progress', '0%');
@@ -370,3 +370,4 @@ function smoothScrollTo(element) {
         block: 'start'
     });
 }
+
