@@ -19,12 +19,12 @@ It challenges users with multiple-choice questions on general knowledge, science
 
 ---
 
-## 🛠️ Tech Stack  
+ 🛠️ Tech Stack  
 
 - **HTML5** – Structure  
 - **CSS3** – Styling, animations, responsiveness  
 - **JavaScript ** – Logic, timer, navigation, results  
-- **Google Fonts** – Typography
+
 
 ## 🚀 Live Demo  
 
