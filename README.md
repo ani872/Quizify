@@ -28,4 +28,4 @@ It challenges users with multiple-choice questions on general knowledge, science
 
 ## 🚀 Live Demo  
 
-(https://ani872.github.io/Quizify/)
+https://quizify-weld.vercel.app/
